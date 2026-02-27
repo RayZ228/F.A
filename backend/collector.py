@@ -6,7 +6,7 @@ import openai
 import requests
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
-from backend.models import Grant
+from models import Grant
 
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -36,7 +36,7 @@ def extract_grant_with_gpt(html_content: str, source_url: str) -> Optional[Grant
             messages=[
                 {
                     "role": "system",
-                    "content": "Ты эксперт по грантам в Казахстане. Извлекай точную информацию о грантах. Если сумма не указана точно, используй null. Дедлайн всегда в формате YYYY-MM-DD."
+                    "content": "Ты эксперт по грантам в Казахстане. Извлекай точную информацию о грантах. Если сумма не указана точно, используй null. Дедлайн всегда в формате DD-MM-YYYY."
                 },
                 {
                     "role": "user",
