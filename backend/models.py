@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, BigInteger, DateTime, Date
 from sqlalchemy.sql import func
-from backend.database import Base
+from database import Base
 
 
 class Grant(Base):
